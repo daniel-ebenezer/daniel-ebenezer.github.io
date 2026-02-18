@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Daniel • Game Dev Portfolio</title>
   <meta name="description" content="Daniel's techy gamified portfolio — scroll your story"/>
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -16,14 +15,12 @@
       --card: #111;
       --text: #fff;
       --text-dim: #aaa;
-      --accent: #00f0ff;          /* ← changed to electric cyan – tell me if you want another */
+      --accent: #00f0ff;
       --accent-glow: rgba(0,240,255,0.45);
       --border: #222;
       --glow: 0 0 35px rgba(0,240,255,0.3);
     }
-
     * { margin:0; padding:0; box-sizing:border-box; }
-
     html, body {
       font-family: 'Inter', system-ui, sans-serif;
       background: var(--bg);
@@ -33,14 +30,12 @@
       font-size: 1.1rem;
       overflow-x: hidden;
     }
-
     .power-orbs {
       position: fixed;
       inset: 0;
       pointer-events: none;
       z-index: -1;
     }
-
     .orb {
       position: absolute;
       width: 10px;
@@ -51,14 +46,12 @@
       box-shadow: var(--glow);
       animation: orbit linear infinite;
     }
-
     @keyframes orbit {
-      0%   { transform: translateY(120vh) rotate(0deg); opacity: 0; }
-      15%  { opacity: 0.9; }
-      85%  { opacity: 0.9; }
+      0% { transform: translateY(120vh) rotate(0deg); opacity: 0; }
+      15% { opacity: 0.9; }
+      85% { opacity: 0.9; }
       100% { transform: translateY(-60vh) rotate(480deg); opacity: 0; }
     }
-
     #progress-container {
       position: fixed;
       top: 0; left: 0;
@@ -67,7 +60,6 @@
       background: #111;
       z-index: 999;
     }
-
     #progress-bar {
       height: 100%;
       width: 0%;
@@ -75,7 +67,6 @@
       box-shadow: var(--glow);
       transition: width 0.2s ease;
     }
-
     #story-label {
       position: fixed;
       top: 12px;
@@ -86,7 +77,6 @@
       text-shadow: var(--glow);
       z-index: 999;
     }
-
     ::-webkit-scrollbar { width: 12px; }
     ::-webkit-scrollbar-track { background: var(--bg); }
     ::-webkit-scrollbar-thumb {
@@ -95,7 +85,6 @@
       box-shadow: inset 0 0 6px rgba(0,0,0,0.6);
     }
     ::-webkit-scrollbar-thumb:hover { box-shadow: var(--glow); }
-
     #loader {
       position: fixed;
       inset: 0;
@@ -107,7 +96,6 @@
       transition: opacity 0.8s ease;
     }
     #loader.hidden { opacity: 0; pointer-events: none; }
-
     .controller-spin {
       font-size: 5rem;
       color: var(--accent);
@@ -115,7 +103,6 @@
       text-shadow: var(--glow);
     }
     @keyframes spin { to { transform: rotate(360deg); } }
-
     section {
       padding: 12rem 8% 10rem;
       max-width: 1400px;
@@ -123,7 +110,6 @@
       border-bottom: 1px solid var(--border);
       text-align: center;
     }
-
     section::before {
       content: 'CHAPTER ' attr(data-chapter);
       font-family: 'Space Mono', monospace;
@@ -136,7 +122,6 @@
       display: inline-block;
       margin-bottom: 2.5rem;
     }
-
     h2 {
       font-family: 'Space Mono', monospace;
       font-size: 4.2rem;
@@ -145,21 +130,18 @@
       text-shadow: var(--glow);
       letter-spacing: 3px;
     }
-
     p {
       max-width: 880px;
       margin: 0 auto 1.8rem;
       color: var(--text-dim);
       font-size: 1.15rem;
     }
-
     .card-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 2.8rem;
       margin-top: 3rem;
     }
-
     .card {
       background: var(--card);
       border: 1px solid var(--border);
@@ -168,20 +150,17 @@
       transition: all 0.4s ease;
       box-shadow: 0 8px 32px rgba(0,0,0,0.6);
     }
-
     .card:hover {
       transform: translateY(-12px);
       border-color: var(--accent);
       box-shadow: var(--glow);
     }
-
     .card h3 {
       font-family: 'Space Mono', monospace;
       font-size: 1.9rem;
       color: var(--accent);
       margin-bottom: 1.2rem;
     }
-
     .scroll-hint {
       position: absolute;
       bottom: 3rem;
@@ -195,18 +174,41 @@
       align-items: center;
       gap: 0.8rem;
     }
-
     @keyframes pulse {
       0%, 100% { opacity: 0.6; transform: translateX(-50%) translateY(0); }
-      50%      { opacity: 1;   transform: translateX(-50%) translateY(-12px); }
+      50% { opacity: 1; transform: translateX(-50%) translateY(-12px); }
     }
-
     footer {
       text-align: center;
       padding: 8rem 0 5rem;
       color: var(--text-dim);
     }
-
+    .btn {
+      padding: 0.9rem 2rem;
+      background: transparent;
+      border: 2px solid var(--accent);
+      color: var(--accent);
+      font-weight: 600;
+      border-radius: 50px;
+      transition: all 0.4s;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 1rem;
+    }
+    .btn:hover {
+      background: var(--accent);
+      color: #000;
+      box-shadow: var(--glow);
+    }
+    .project-video {
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      width: 100%;
+      display: block;
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+      background: #000;
+    }
     @media (max-width: 768px) {
       section { padding: 8rem 6% 6rem; }
       h2 { font-size: 3.2rem; }
@@ -216,7 +218,6 @@
 <body>
 
   <div class="power-orbs" id="orbs"></div>
-
   <div id="progress-container"><div id="progress-bar"></div></div>
   <span id="story-label">STORY: 0%</span>
 
@@ -239,98 +240,119 @@
     <p>Passionate about learning, I continually strive to stay at the forefront of emerging technologies to deliver impactful and immersive experiences.</p>
   </section>
 
-  <section data-chapter="4 – CAREER QUESTS">
-  <h2>CAREER QUESTS</h2>
+  <section data-chapter="3 – CAREER QUESTS">
+    <h2>CAREER QUESTS</h2>
+    <!-- Job 1 -->
+    <h3 style="font-family: 'Space Mono', monospace; font-size: 2.4rem; color: var(--accent); margin: 4rem 0 0.8rem; text-shadow: var(--glow);">
+      Lead Game Developer, Dark Matter Labs
+    </h3>
+    <p class="location" style="color: var(--accent-soft); font-size: 1.2rem; margin-bottom: 0.5rem;">
+      Coimbatore, TN
+    </p>
+    <p style="color: var(--text-dim); font-size: 1.1rem; margin-bottom: 1rem;">
+      Jan 2024 – Present
+    </p>
+    <p>
+      Served as Lead Game Developer on a series of WebGL games built with both Godot and Unity.
+    </p>
+    <p>
+      Designed and implemented core gameplay systems, reusable game templates, and robust API integration modules — enabling seamless backend connectivity, real-time multiplayer features, and scalable cloud-based deployment across multiple titles.
+    </p>
 
-  <!-- Job 1 -->
-  <h3 style="font-family: 'Space Mono', monospace; font-size: 2.4rem; color: var(--accent); margin: 4rem 0 0.8rem; text-shadow: var(--glow);">
-    Lead Game Developer, Dark Matter Labs
-  </h3>
-  <p class="location" style="color: var(--accent-soft); font-size: 1.2rem; margin-bottom: 0.5rem; ">
-    Coimbatore, TN 
-  </p>
-  <p style="color: var(--text-dim); font-size: 1.1rem; margin-bottom: 1rem;">
-    Jan 2024 – Present
-  </p>
-  <p>
-    Served as Lead Game Developer on a series of high-performance WebGL games built with both Godot and Unity.
-  </p>
-  <p>
-    Designed and implemented core gameplay systems, reusable game templates, and robust API integration modules — enabling seamless backend connectivity, real-time multiplayer features, and scalable cloud-based deployment across multiple titles.
-  </p>
+    <!-- Job 2 -->
+    <h3 style="font-family: 'Space Mono', monospace; font-size: 2.4rem; color: var(--accent); margin: 5rem 0 0.8rem; text-shadow: var(--glow);">
+      XR Developer, TCS Interactive
+    </h3>
+    <p class="location" style="color: var(--accent-soft); font-size: 1.2rem; margin-bottom: 0.5rem;">
+      Chennai, TN
+    </p>
+    <p style="color: var(--text-dim); font-size: 1.1rem; margin-bottom: 1rem;">
+      Aug 2021 – Dec 2023
+    </p>
+    <p>
+      Contributed to an enterprise VR supply chain visualization product, transforming complex datasets into intuitive, immersive 3D environments that improved stakeholder understanding and accelerated decision-making.
+    </p>
+    <p>
+      Rapidly prototyped and delivered 10+ proof-of-concept experiences using Unity, NVIDIA Omniverse, PlayCanvas, and AltspaceVR — validating XR concepts and shortening iteration cycles for enterprise clients.
+    </p>
+  </section>
 
-  <!-- Job 2 -->
-  <h3 style="font-family: 'Space Mono', monospace; font-size: 2.4rem; color: var(--accent); margin: 5rem 0 0.8rem; text-shadow: var(--glow);">
-    XR Developer, TCS Interactive
-  </h3>
-  <p class="location" style="color: var(--accent-soft); font-size: 1.2rem; margin-bottom: 0.5rem; ">
-    Chennai, TN
-  </p>
-  <p style="color: var(--text-dim); font-size: 1.1rem; margin-bottom: 1rem;">
-    Aug 2021 – Dec 2023
-  </p>
-  <p>
-    Contributed to an enterprise VR supply chain visualization product, transforming complex datasets into intuitive, immersive 3D environments that improved stakeholder understanding and accelerated decision-making.
-  </p>
-  <p>
-    Rapidly prototyped and delivered 10+ proof-of-concept experiences using Unity, NVIDIA Omniverse, PlayCanvas, and AltspaceVR — validating XR concepts and shortening iteration cycles for enterprise clients.
-  </p>
-</section>
-
-  <section data-chapter="4 – ACTIVE QUESTS">
-    <h2>ACTIVE QUESTS</h2>
+  <section data-chapter="4 – SIDE QUESTS">
+    <h2>SIDE QUESTS</h2>
     <div class="card-grid">
+
+      <!-- Project 1 -->
       <div class="card">
-        <div class="project-img">Gameplay / GIF</div>
-        <h3>Project: Echoes of Solace</h3>
-        <p>Cozy exploration with deep narrative systems</p>
-        <a href="#" target="_blank">VIEW QUEST LOG →</a>
+        <video 
+          class="project-video"
+          autoplay 
+          muted 
+          loop 
+          playsinline 
+          poster="videos/echoes-poster.jpg"
+        >
+          <source src="videos/echoes-of-solace-demo.mp4" type="video/mp4">
+          <source src="videos/echoes-of-solace-demo.webm" type="video/webm">
+          Your browser does not support the video tag.
+        </video>
+        <h3>Echoes of Solace</h3>
+        <p>Cozy exploration adventure with deep narrative systems, dynamic day-night cycles, and emotional character interactions.</p>
+        <a href="https://yourusername.itch.io/echoes-of-solace" target="_blank" class="btn">
+          PLAY ON ITCH.IO →
+        </a>
       </div>
 
+      <!-- Project 2 -->
       <div class="card">
-        <div class="project-img">Trailer / Screenshot</div>
-        <h3>Project: Neon Drift Protocol</h3>
-        <p>High-speed cyber runner with procedural tracks</p>
-        <a href="#" target="_blank">ACCEPT CHALLENGE →</a>
+        <video 
+          class="project-video"
+          autoplay 
+          muted 
+          loop 
+          playsinline 
+          poster="videos/neon-drift-poster.jpg"
+        >
+          <source src="videos/neon-drift-protocol-demo.mp4" type="video/mp4">
+          <source src="videos/neon-drift-protocol-demo.webm" type="video/webm">
+          Your browser does not support the video tag.
+        </video>
+        <h3>Neon Drift Protocol</h3>
+        <p>High-speed cyber runner with procedurally generated tracks, momentum-based movement, and neon-drenched visuals.</p>
+        <a href="https://yourusername.itch.io/neon-drift-protocol" target="_blank" class="btn">
+          PLAY ON ITCH.IO →
+        </a>
       </div>
+
+      <!-- Add more side quests here using the same structure -->
+
     </div>
   </section>
 
-  <!-- Level 3: Skills / Skill Tree (updated with split) -->
-<section id="skills" data-chapter="5 – SKILL TREE">
-  <h2>SKILL TREE</h2>
-
-  <!-- Subsection 1: Game Engine Expertise -->
-  <h3 style="font-family: 'Space Mono', monospace; font-size: 2.4rem; color: var(--accent); margin: 4rem 0 2rem; text-align: center; text-shadow: var(--glow);">
-    GAME ENGINE EXPERTISE
-  </h3>
-  <div class="card-grid">
-    <div class="card">
-      <h3>Unity</h3>
-      <p>Gameplay, Scriptable objects, Custom editor tools, UGUI</p>
+  <!-- SKILL TREE section (unchanged from your last version) -->
+  <section id="skills" data-chapter="5 – SKILL TREE">
+    <h2>SKILL TREE</h2>
+    <h3 style="font-family: 'Space Mono', monospace; font-size: 2.4rem; color: var(--accent); margin: 4rem 0 2rem; text-align: center; text-shadow: var(--glow);">
+      GAME ENGINE EXPERTISE
+    </h3>
+    <div class="card-grid">
+      <div class="card">
+        <h3>Unity</h3>
+        <p>Gameplay, Scriptable objects, Custom editor tools, UGUI</p>
+      </div>
+      <div class="card">
+        <h3>Godot</h3>
+        <p>API Integration, WebGL Optimization, Game systems</p>
+      </div>
     </div>
-    <div class="card">
-      <h3>Godot</h3>
-      <p>API Integration, WebGL Optimization, Game systems</p>
+    <h3 style="font-family: 'Space Mono', monospace; font-size: 2.4rem; color: var(--accent); margin: 5rem 0 2rem; text-align: center; text-shadow: var(--glow);">
+      PLATFORMS
+    </h3>
+    <div class="card-grid">
+      <div class="card"><h3>Android</h3></div>
+      <div class="card"><h3>Web</h3></div>
+      <div class="card"><h3>XR</h3></div>
     </div>
-  </div>
-
-  <!-- Subsection 2: Platforms & Specializations -->
-  <h3 style="font-family: 'Space Mono', monospace; font-size: 2.4rem; color: var(--accent); margin: 5rem 0 2rem; text-align: center; text-shadow: var(--glow);">
-    PLATFORMS
-  </h3>
-  <div class="card-grid">
-    <div class="card">
-      <h3>Android</h3>
-    </div>
-    <div class="card">
-      <h3>Web</h3>
-    </div>
-    <div class="card">
-      <h3>XR</h3>
-    </div>
-  </div>
-</section>
+  </section>
 
   <section data-chapter="6 – MULTIPLAYER LOBBY">
     <h2>MULTIPLAYER LOBBY</h2>
@@ -351,7 +373,6 @@
     window.addEventListener('load', () => {
       document.getElementById('loader').classList.add('hidden');
     });
-
     window.onscroll = () => {
       let scrollTop = document.documentElement.scrollTop;
       let scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -359,7 +380,6 @@
       document.getElementById('progress-bar').style.width = scrolled + '%';
       document.getElementById('story-label').innerText = 'STORY: ' + Math.floor(scrolled) + '%';
     };
-
     const orbsContainer = document.getElementById('orbs');
     for (let i = 0; i < 18; i++) {
       const orb = document.createElement('div');
@@ -370,6 +390,5 @@
       orbsContainer.appendChild(orb);
     }
   </script>
-
 </body>
 </html>
