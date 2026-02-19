@@ -251,23 +251,36 @@
     .social-icons img:hover {
       filter: brightness(1.2);
     }
-    /* Center platform cards */
+    /* Center platform cards & make them shorter */
     .card-grid:last-of-type .card {
       text-align: center;
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 120px;
+      min-height: 100px;           /* ← reduced height */
+      padding: 1.8rem 1rem;
     }
     .card-grid:last-of-type .card h3 {
       margin: 0;
+      font-size: 1.6rem;
     }
+    /* Responsive heading for multiplayer lobby */
     @media (max-width: 768px) {
       section { padding: 8rem 6% 6rem; }
       h2 { font-size: 3.2rem; }
+      .multiplayer-lobby h2 { font-size: 2.6rem; line-height: 1.1; } /* smaller on mobile */
       .social-icons { gap: 1.8rem; flex-wrap: wrap; }
       .social-icons img { width: 40px; height: 40px; }
       .card { min-height: 480px; }
+    }
+    @media (max-width: 480px) {
+      .multiplayer-lobby h2 { font-size: 2.3rem; }
+    }
+    /* Dynamic scroll/swipe message */
+    #continue-instruction {
+      font-size: clamp(1.1rem, 4vw, 1.4rem);
+      color: var(--accent);
+      margin-top: 2rem;
     }
   </style>
 </head>
@@ -282,9 +295,7 @@
   <section data-chapter="1 – BOOT SEQUENCE">
     <h2>DANIEL EBENEZER</h2>
     <p>Game Developer</p>
-    <p style="font-size: 1.4rem; color: var(--accent); margin-top: 2rem;">
-      Scroll / Swipe Up to Continue Quest
-    </p>
+    <p id="continue-instruction">Scroll down to continue story</p>
     <div class="scroll-hint">↓ SWIPE UP ↓</div>
   </section>
 
@@ -348,11 +359,11 @@
           View More →
         </a>
       </div>
+      <!-- ... other four cards remain the same ... -->
       <div class="card">
         <video class="project-video" autoplay muted loop playsinline poster="videos/neon-drift-poster.jpg">
           <source src="videos/Glance of gloomy past gameplay.mp4" type="video/mp4">
           <source src="videos/neon-drift-protocol-demo.webm" type="video/webm">
-          Your browser does not support the video tag.
         </video>
         <h3>Glance of Gloomy Past</h3>
         <p>A third person stealth game, where you have powers to become invisible, blind and deafen enemies to take them down. The story revolves around a character who has amnesia and you uncover stories behind his past as you progress.</p>
@@ -364,7 +375,6 @@
         <video class="project-video" autoplay muted loop playsinline poster="videos/shadow-realms-poster.jpg">
           <source src="videos/Illicium Gameplay.mp4" type="video/mp4">
           <source src="videos/shadow-realms-demo.webm" type="video/webm">
-          Your browser does not support the video tag.
         </video>
         <h3>Illicium</h3>
         <p>In this 2D top down survival game, the player avoids the light and is trying to survive in the deep sea. The player will encounter some enemies on his way, use the light to move the player away from enemies and make him survive!</p>
@@ -376,7 +386,6 @@
         <video class="project-video" autoplay muted loop playsinline poster="videos/void-arena-poster.jpg">
           <source src="videos/INERT Gameplay.mp4" type="video/mp4">
           <source src="videos/void-arena-demo.webm" type="video/webm">
-          Your browser does not support the video tag.
         </video>
         <h3>INERT</h3>
         <p>A fast paced parkour kind of game where the player has to reach the end cube (to get safe) before the room shrinks and squeezes the player!!</p>
@@ -388,7 +397,6 @@
         <video class="project-video" autoplay muted loop playsinline poster="videos/liminal-drift-poster.jpg">
           <source src="videos/ZS Gameplay.mp4" type="video/mp4">
           <source src="videos/liminal-drift-demo.webm" type="video/webm">
-          Your browser does not support the video tag.
         </video>
         <h3>Zoombie Shooter VR</h3>
         <p>Teleport away and take them down!!</p>
@@ -415,13 +423,13 @@
       PLATFORMS
     </h3>
     <div class="card-grid">
-      <div class="card"><h3>Android</h3></div>
-      <div class="card"><h3>Web</h3></div>
-      <div class="card"><h3>XR</h3></div>
+      <div class="card shorter-platform-card"><h3>Android</h3></div>
+      <div class="card shorter-platform-card"><h3>Web</h3></div>
+      <div class="card shorter-platform-card"><h3>XR</h3></div>
     </div>
   </section>
 
-  <section data-chapter="6 – MULTIPLAYER LOBBY">
+  <section data-chapter="6 – MULTIPLAYER LOBBY" class="multiplayer-lobby">
     <div class="section-content">
       <h2>MULTIPLAYER LOBBY</h2>
       <p style="font-size: 1.3rem;">Let's team up for the next big run.</p>
@@ -447,9 +455,18 @@
   </footer>
 
   <script>
+    // Dynamic scroll/swipe message
+    const continueEl = document.getElementById('continue-instruction');
+    if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+      continueEl.textContent = 'Swipe up to continue story';
+    } else {
+      continueEl.textContent = 'Scroll down to continue story';
+    }
+
     window.addEventListener('load', () => {
       document.getElementById('loader').classList.add('hidden');
     });
+
     window.onscroll = () => {
       let scrollTop = document.documentElement.scrollTop;
       let scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -457,6 +474,7 @@
       document.getElementById('progress-bar').style.width = scrolled + '%';
       document.getElementById('story-label').innerText = 'STORY: ' + Math.floor(scrolled) + '%';
     };
+
     const orbsContainer = document.getElementById('orbs');
     for (let i = 0; i < 18; i++) {
       const orb = document.createElement('div');
