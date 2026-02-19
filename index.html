@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Daniel • Game Dev Portfolio</title>
-  <meta name="description" content="Daniel's techy gamified portfolio — scroll your story"/>
+  <title>Daniel Ebenezer's Portfolio</title>
+  <meta name="description" content="Daniel Ebenezer's portfolio — scroll your story"/>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -29,7 +29,7 @@
       font-size: 1.1rem;
       overflow-x: hidden;
     }
-    section, .card-grid, footer, .social-icons {
+    section, .card-grid, footer, .social-icons, .section-content {
       text-align: center;
     }
     p, h3 {
@@ -115,6 +115,10 @@
       margin: 0 auto;
       border-bottom: 1px solid var(--border);
     }
+    .section-content {
+      max-width: 880px;
+      margin: 0 auto;
+    }
     section::before {
       content: 'CHAPTER ' attr(data-chapter);
       font-family: 'Space Mono', monospace;
@@ -161,7 +165,7 @@
       display: flex;
       flex-direction: column;
       height: 100%;
-      min-height: 520px;          /* ← adjust this value if needed to match your tallest card */
+      min-height: 520px;
     }
     .card:hover {
       transform: translateY(-12px);
@@ -175,7 +179,7 @@
       margin-bottom: 1.2rem;
     }
     .card .btn {
-      margin-top: auto;           /* pushes button to bottom of card */
+      margin-top: auto;
     }
     .scroll-hint {
       position: absolute;
@@ -263,7 +267,7 @@
       h2 { font-size: 3.2rem; }
       .social-icons { gap: 1.8rem; flex-wrap: wrap; }
       .social-icons img { width: 40px; height: 40px; }
-      .card { min-height: 480px; } /* slightly smaller on mobile if needed */
+      .card { min-height: 480px; }
     }
   </style>
 </head>
@@ -274,6 +278,7 @@
   <div id="loader">
     <div class="controller-spin">🎮</div>
   </div>
+
   <section data-chapter="1 – BOOT SEQUENCE">
     <h2>DANIEL EBENEZER</h2>
     <p>Game Developer</p>
@@ -282,44 +287,51 @@
     </p>
     <div class="scroll-hint">↓ SWIPE UP ↓</div>
   </section>
+
   <section data-chapter="2 – ORIGIN STORY">
-    <h2>ORIGIN STORY</h2>
-    <p>Seasoned game/XR Developer skilled in Unity, Godot Engine dedicated to creating innovative and user-centric solutions in XR and gaming.</p>
-    <p>Passionate about learning, I continually strive to stay at the forefront of emerging technologies to deliver impactful and immersive experiences.</p>
+    <div class="section-content">
+      <h2>ORIGIN STORY</h2>
+      <p>Seasoned game/XR Developer skilled in Unity, Godot Engine dedicated to creating innovative and user-centric solutions in XR and gaming.</p>
+      <p>Passionate about learning, I continually strive to stay at the forefront of emerging technologies to deliver impactful and immersive experiences.</p>
+    </div>
   </section>
-  <section data-chapter="3 – CAREER QUESTS">
-    <h2>CAREER QUESTS</h2>
-    <h3 style="font-family: 'Space Mono', monospace; font-size: 2.4rem; color: var(--accent); margin: 4rem 0 0.8rem; text-shadow: var(--glow);">
-      Lead Game Developer, Dark Matter Labs
-    </h3>
-    <p class="location" style="color: var(--accent-soft); font-size: 1.2rem; margin-bottom: 0.5rem;">
-      Coimbatore, TN
-    </p>
-    <p style="color: var(--text-dim); font-size: 1.1rem; margin-bottom: 1rem;">
-      Jan 2024 – Present
-    </p>
-    <p>
-      Served as Lead Game Developer on a series of WebGL games built with both Godot and Unity.
-    </p>
-    <p>
-      Designed and implemented core gameplay systems, reusable game templates, and robust API integration modules — enabling seamless backend connectivity across multiple titles.
-    </p>
-    <h3 style="font-family: 'Space Mono', monospace; font-size: 2.4rem; color: var(--accent); margin: 5rem 0 0.8rem; text-shadow: var(--glow);">
-      XR Developer, TCS Interactive
-    </h3>
-    <p class="location" style="color: var(--accent-soft); font-size: 1.2rem; margin-bottom: 0.5rem;">
-      Chennai, TN
-    </p>
-    <p style="color: var(--text-dim); font-size: 1.1rem; margin-bottom: 1rem;">
-      Aug 2021 – Dec 2023
-    </p>
-    <p>
-      Contributed to a VR supply chain visualization product, improving data understanding and decision-making via immersive 3D environments.
-    </p>
-    <p>
-      Built 10+ POCs in Unity, NVIDIA Omniverse, PlayCanvas, and AltspaceVR to accelerate iteration and validate enterprise XR concepts.
-    </p>
+
+  <section data-chapter="3 – MAIN QUESTS">
+    <div class="section-content">
+      <h2>MAIN QUESTS</h2>
+      <h3 style="font-family: 'Space Mono', monospace; font-size: 2.4rem; color: var(--accent); margin: 4rem 0 0.8rem; text-shadow: var(--glow);">
+        Lead Game Developer, Dark Matter Labs
+      </h3>
+      <p class="location" style="color: var(--accent-soft); font-size: 1.2rem; margin-bottom: 0.5rem;">
+        Coimbatore, TN
+      </p>
+      <p style="color: var(--text-dim); font-size: 1.1rem; margin-bottom: 1rem;">
+        Jan 2024 – Present
+      </p>
+      <p>
+        Served as Lead Game Developer on a series of WebGL games built with both Godot and Unity.
+      </p>
+      <p>
+        Designed and implemented core gameplay systems, reusable game templates, and robust API integration modules — enabling seamless backend connectivity across multiple titles.
+      </p>
+      <h3 style="font-family: 'Space Mono', monospace; font-size: 2.4rem; color: var(--accent); margin: 5rem 0 0.8rem; text-shadow: var(--glow);">
+        XR Developer, TCS Interactive
+      </h3>
+      <p class="location" style="color: var(--accent-soft); font-size: 1.2rem; margin-bottom: 0.5rem;">
+        Chennai, TN
+      </p>
+      <p style="color: var(--text-dim); font-size: 1.1rem; margin-bottom: 1rem;">
+        Aug 2021 – Dec 2023
+      </p>
+      <p>
+        Contributed to a VR supply chain visualization product, improving data understanding and decision-making via immersive 3D environments.
+      </p>
+      <p>
+        Built 10+ POCs in Unity, NVIDIA Omniverse, PlayCanvas, and AltspaceVR to accelerate iteration and validate enterprise XR concepts.
+      </p>
+    </div>
   </section>
+
   <section data-chapter="4 – SIDE QUESTS">
     <h2>SIDE QUESTS</h2>
     <div class="card-grid">
@@ -383,6 +395,7 @@
       </div>
     </div>
   </section>
+
   <section id="skills" data-chapter="5 – SKILL TREE">
     <h2>SKILL TREE</h2>
     <h3 style="font-family: 'Space Mono', monospace; font-size: 2.4rem; color: var(--accent); margin: 4rem 0 2rem; text-align: center; text-shadow: var(--glow);">
@@ -407,27 +420,32 @@
       <div class="card"><h3>XR</h3></div>
     </div>
   </section>
+
   <section data-chapter="6 – MULTIPLAYER LOBBY">
-    <h2>MULTIPLAYER LOBBY</h2>
-    <p style="font-size: 1.3rem;">Let's team up for the next big run.</p>
-    <div class="social-icons">
-      <a href="https://github.com/daniel-ebenezer" target="_blank" title="GitHub">
-        <img src="images/github.png" alt="GitHub">
-      </a>
-      <a href="https://linkedin.com/in/daniel-ebenezer" target="_blank" title="LinkedIn">
-        <img src="images/linkedin.png" alt="LinkedIn">
-      </a>
-      <a href="mailto:ebnzrdaniel03@gmail.com" title="Email">
-        <img src="images/gmail.png" alt="Email">
-      </a>
-      <a href="https://danielebenezer.itch.io/" target="_blank" title="itch.io">
-        <img src="images/itch.png" alt="itch.io">
-      </a>
+    <div class="section-content">
+      <h2>MULTIPLAYER LOBBY</h2>
+      <p style="font-size: 1.3rem;">Let's team up for the next big run.</p>
+      <div class="social-icons">
+        <a href="https://github.com/daniel-ebenezer" target="_blank" title="GitHub">
+          <img src="images/github.png" alt="GitHub">
+        </a>
+        <a href="https://linkedin.com/in/daniel-ebenezer" target="_blank" title="LinkedIn">
+          <img src="images/linkedin.png" alt="LinkedIn">
+        </a>
+        <a href="mailto:ebnzrdaniel03@gmail.com" title="Email">
+          <img src="images/gmail.png" alt="Email">
+        </a>
+        <a href="https://danielebenezer.itch.io/" target="_blank" title="itch.io">
+          <img src="images/itch.png" alt="itch.io">
+        </a>
+      </div>
     </div>
   </section>
+
   <footer>
     <p>© 2026 Daniel Ebenezer • Game Over? Nah, Replay!</p>
   </footer>
+
   <script>
     window.addEventListener('load', () => {
       document.getElementById('loader').classList.add('hidden');
