@@ -40,7 +40,7 @@
     .card {
       margin-left: auto;
       margin-right: auto;
-      max-width: 400px; /* optional: prevents cards from stretching too wide on large screens */
+      max-width: 400px;
     }
     .power-orbs {
       position: fixed;
@@ -152,7 +152,7 @@
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 2.8rem;
       margin-top: 3rem;
-      justify-items: center; /* centers cards in their grid cells */
+      justify-items: center;
     }
     .card {
       background: var(--card);
@@ -162,7 +162,7 @@
       transition: all 0.4s ease;
       box-shadow: 0 8px 32px rgba(0,0,0,0.6);
       width: 100%;
-      max-width: 380px; /* tighter cards for better centering feel */
+      max-width: 380px;
     }
     .card:hover {
       transform: translateY(-12px);
@@ -194,7 +194,7 @@
     }
     footer {
       text-align: center;
-      padding: 8rem 0 5rem;
+      padding: 4rem 0 3rem;          /* reduced top padding significantly */
       color: var(--text-dim);
     }
     .btn {
@@ -223,12 +223,12 @@
       margin-bottom: 1.5rem;
       background: #000;
     }
-    /* New: Social icons in lobby */
+    /* Social icons */
     .social-icons {
       display: flex;
       justify-content: center;
       gap: 2.5rem;
-      margin: 3rem auto;
+      margin: 2rem auto 1rem;        /* reduced bottom margin → smaller gap to footer */
       max-width: 700px;
     }
     .social-icons a {
@@ -242,10 +242,21 @@
     .social-icons img {
       width: 48px;
       height: 48px;
-      filter: brightness(0) invert(1); /* makes black icons white; adjust if needed */
+      filter: brightness(0) invert(1);
     }
     .social-icons img:hover {
       filter: brightness(1.2);
+    }
+    /* Center-align the platform cards (Android, Web, XR) */
+    .card-grid:last-of-type .card {
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 120px;              /* better vertical centering */
+    }
+    .card-grid:last-of-type .card h3 {
+      margin: 0;                      /* remove default margin for perfect center */
     }
     @media (max-width: 768px) {
       section { padding: 8rem 6% 6rem; }
@@ -291,7 +302,7 @@
       Served as Lead Game Developer on a series of WebGL games built with both Godot and Unity.
     </p>
     <p>
-      Designed and implemented core gameplay systems, reusable game templates, and robust API integration modules — enabling seamless backend connectivity, real-time multiplayer features, and scalable cloud-based deployment across multiple titles.
+      Designed and implemented core gameplay systems, reusable game templates, and robust API integration modules — enabling seamless backend connectivity across multiple titles.
     </p>
     <!-- Job 2 -->
     <h3 style="font-family: 'Space Mono', monospace; font-size: 2.4rem; color: var(--accent); margin: 5rem 0 0.8rem; text-shadow: var(--glow);">
@@ -304,10 +315,10 @@
       Aug 2021 – Dec 2023
     </p>
     <p>
-      Contributed to an enterprise VR supply chain visualization product, transforming complex datasets into intuitive, immersive 3D environments that improved stakeholder understanding and accelerated decision-making.
+      Contributed to a VR supply chain visualization product, improving data understanding and decision-making via immersive 3D environments.
     </p>
     <p>
-      Rapidly prototyped and delivered 10+ proof-of-concept experiences using Unity, NVIDIA Omniverse, PlayCanvas, and AltspaceVR — validating XR concepts and shortening iteration cycles for enterprise clients.
+      Built 10+ POCs in Unity, NVIDIA Omniverse, PlayCanvas, and AltspaceVR to accelerate iteration and validate enterprise XR concepts.
     </p>
   </section>
   <section data-chapter="4 – SIDE QUESTS">
@@ -445,7 +456,7 @@
         <img src="images/github.png" alt="GitHub">
       </a>
       <a href="https://linkedin.com/in/daniel-ebenezer" target="_blank" title="LinkedIn">
-        <img src="images/linked.png" alt="LinkedIn">
+        <img src="images/linkedin.png" alt="LinkedIn">
       </a>
       <a href="mailto:ebnzrdaniel03@gmail.com" title="Email">
         <img src="images/gmail.png" alt="Email">
