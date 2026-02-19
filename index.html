@@ -29,18 +29,12 @@
       font-size: 1.1rem;
       overflow-x: hidden;
     }
-    /* Enhanced centering consistency */
     section, .card-grid, footer, .social-icons {
       text-align: center;
     }
     p, h3 {
       margin-left: auto;
       margin-right: auto;
-    }
-    .card {
-      margin-left: auto;
-      margin-right: auto;
-      max-width: 400px;
     }
     .power-orbs {
       position: fixed;
@@ -153,6 +147,7 @@
       gap: 2.8rem;
       margin-top: 3rem;
       justify-items: center;
+      align-content: start;
     }
     .card {
       background: var(--card);
@@ -163,6 +158,10 @@
       box-shadow: 0 8px 32px rgba(0,0,0,0.6);
       width: 100%;
       max-width: 380px;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      min-height: 520px;          /* ← adjust this value if needed to match your tallest card */
     }
     .card:hover {
       transform: translateY(-12px);
@@ -174,6 +173,9 @@
       font-size: 1.9rem;
       color: var(--accent);
       margin-bottom: 1.2rem;
+    }
+    .card .btn {
+      margin-top: auto;           /* pushes button to bottom of card */
     }
     .scroll-hint {
       position: absolute;
@@ -194,7 +196,7 @@
     }
     footer {
       text-align: center;
-      padding: 4rem 0 3rem;          /* reduced top padding significantly */
+      padding: 4rem 0 3rem;
       color: var(--text-dim);
     }
     .btn {
@@ -207,7 +209,6 @@
       transition: all 0.4s;
       text-decoration: none;
       display: inline-block;
-      margin-top: 1rem;
     }
     .btn:hover {
       background: var(--accent);
@@ -223,12 +224,11 @@
       margin-bottom: 1.5rem;
       background: #000;
     }
-    /* Social icons */
     .social-icons {
       display: flex;
       justify-content: center;
       gap: 2.5rem;
-      margin: 2rem auto 1rem;        /* reduced bottom margin → smaller gap to footer */
+      margin: 2rem auto 1rem;
       max-width: 700px;
     }
     .social-icons a {
@@ -247,22 +247,23 @@
     .social-icons img:hover {
       filter: brightness(1.2);
     }
-    /* Center-align the platform cards (Android, Web, XR) */
+    /* Center platform cards */
     .card-grid:last-of-type .card {
       text-align: center;
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 120px;              /* better vertical centering */
+      min-height: 120px;
     }
     .card-grid:last-of-type .card h3 {
-      margin: 0;                      /* remove default margin for perfect center */
+      margin: 0;
     }
     @media (max-width: 768px) {
       section { padding: 8rem 6% 6rem; }
       h2 { font-size: 3.2rem; }
       .social-icons { gap: 1.8rem; flex-wrap: wrap; }
       .social-icons img { width: 40px; height: 40px; }
+      .card { min-height: 480px; } /* slightly smaller on mobile if needed */
     }
   </style>
 </head>
@@ -288,7 +289,6 @@
   </section>
   <section data-chapter="3 – CAREER QUESTS">
     <h2>CAREER QUESTS</h2>
-    <!-- Job 1 -->
     <h3 style="font-family: 'Space Mono', monospace; font-size: 2.4rem; color: var(--accent); margin: 4rem 0 0.8rem; text-shadow: var(--glow);">
       Lead Game Developer, Dark Matter Labs
     </h3>
@@ -304,7 +304,6 @@
     <p>
       Designed and implemented core gameplay systems, reusable game templates, and robust API integration modules — enabling seamless backend connectivity across multiple titles.
     </p>
-    <!-- Job 2 -->
     <h3 style="font-family: 'Space Mono', monospace; font-size: 2.4rem; color: var(--accent); margin: 5rem 0 0.8rem; text-shadow: var(--glow);">
       XR Developer, TCS Interactive
     </h3>
@@ -324,16 +323,8 @@
   <section data-chapter="4 – SIDE QUESTS">
     <h2>SIDE QUESTS</h2>
     <div class="card-grid">
-      <!-- Project 1 -->
       <div class="card">
-        <video
-          class="project-video"
-          autoplay
-          muted
-          loop
-          playsinline
-          poster="videos/echoes-poster.jpg"
-        >
+        <video class="project-video" autoplay muted loop playsinline poster="videos/echoes-poster.jpg">
           <source src="videos/BOS Gameplay.mp4" type="video/mp4">
           <source src="videos/echoes-of-solace-demo.webm" type="video/webm">
           Your browser does not support the video tag.
@@ -345,16 +336,8 @@
           View More →
         </a>
       </div>
-      <!-- Project 2 -->
       <div class="card">
-        <video
-          class="project-video"
-          autoplay
-          muted
-          loop
-          playsinline
-          poster="videos/neon-drift-poster.jpg"
-        >
+        <video class="project-video" autoplay muted loop playsinline poster="videos/neon-drift-poster.jpg">
           <source src="videos/Glance of gloomy past gameplay.mp4" type="video/mp4">
           <source src="videos/neon-drift-protocol-demo.webm" type="video/webm">
           Your browser does not support the video tag.
@@ -365,16 +348,8 @@
           View More →
         </a>
       </div>
-      <!-- Project 3 -->
       <div class="card">
-        <video
-          class="project-video"
-          autoplay
-          muted
-          loop
-          playsinline
-          poster="videos/shadow-realms-poster.jpg"
-        >
+        <video class="project-video" autoplay muted loop playsinline poster="videos/shadow-realms-poster.jpg">
           <source src="videos/Illicium Gameplay.mp4" type="video/mp4">
           <source src="videos/shadow-realms-demo.webm" type="video/webm">
           Your browser does not support the video tag.
@@ -385,16 +360,8 @@
           View More →
         </a>
       </div>
-      <!-- Project 4 -->
       <div class="card">
-        <video
-          class="project-video"
-          autoplay
-          muted
-          loop
-          playsinline
-          poster="videos/void-arena-poster.jpg"
-        >
+        <video class="project-video" autoplay muted loop playsinline poster="videos/void-arena-poster.jpg">
           <source src="videos/INERT Gameplay.mp4" type="video/mp4">
           <source src="videos/void-arena-demo.webm" type="video/webm">
           Your browser does not support the video tag.
@@ -405,16 +372,8 @@
           View More →
         </a>
       </div>
-      <!-- Project 5 -->
       <div class="card">
-        <video
-          class="project-video"
-          autoplay
-          muted
-          loop
-          playsinline
-          poster="videos/liminal-drift-poster.jpg"
-        >
+        <video class="project-video" autoplay muted loop playsinline poster="videos/liminal-drift-poster.jpg">
           <source src="videos/ZS Gameplay.mp4" type="video/mp4">
           <source src="videos/liminal-drift-demo.webm" type="video/webm">
           Your browser does not support the video tag.
